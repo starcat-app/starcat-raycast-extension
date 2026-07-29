@@ -8,6 +8,18 @@ updates:
       npm:
         patterns:
           - "*"
+        # Raycast ESLint preset 对 TypeScript 有明确 peer 上限，自动合并主版本会制造
+        # 无法安装的 PR；日常依赖维护只聚合兼容性更可控的 minor / patch。
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
+      - dependency-name: "@types/node"
+        update-types:
+          - version-update:semver-major
   - package-ecosystem: github-actions
     directory: /
     schedule:
