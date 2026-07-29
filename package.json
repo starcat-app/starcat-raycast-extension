@@ -1,0 +1,60 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "starcat-repository-search",
+  "title": "Starcat Repository Search",
+  "description": "Search Starcat local repositories and GitHub from Raycast.",
+  "icon": "icon.png",
+  "author": "dong4j",
+  "license": "MIT",
+  "categories": [
+    "Developer Tools",
+    "Productivity"
+  ],
+  "platforms": [
+    "macOS"
+  ],
+  "commands": [
+    {
+      "name": "search-repositories",
+      "title": "Search Starcat Repositories",
+      "subtitle": "Starcat",
+      "description": "Search Starcat local repositories and GitHub.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "starcatCliPath",
+      "type": "textfield",
+      "required": false,
+      "title": "Starcat CLI Path",
+      "description": "Optional absolute path to the Starcat CLI executable.",
+      "placeholder": "/opt/homebrew/bin/starcat"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.23",
+    "@raycast/utils": "^2.2.7",
+    "react": "^19.2.8"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.2.14",
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  }
+}
