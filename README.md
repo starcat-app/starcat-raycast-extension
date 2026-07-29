@@ -54,6 +54,7 @@ brew install --cask starcat
 <!-- starcat-promo:end -->
 
 [![CI](https://github.com/starcat-app/starcat-raycast-extension/actions/workflows/ci.yml/badge.svg)](https://github.com/starcat-app/starcat-raycast-extension/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/starcat-app/starcat-raycast-extension)](https://github.com/starcat-app/starcat-raycast-extension/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 ## What it does
@@ -139,6 +140,12 @@ fixtures copied from
 Raycast extensions intentionally do not declare a manifest version. The Store
 maintains one implicit latest version and updates users after an accepted
 submission.
+
+Repository milestones use `vMAJOR.MINOR.PATCH` Git tags. Each
+[GitHub Release](https://github.com/starcat-app/starcat-raycast-extension/releases)
+contains source `.zip` / `.tar.gz` archives, `checksums.txt`, and GitHub artifact
+attestations. These archives are intended for review and reproducible local
+development; they are not a one-click Raycast Store installer.
 
 Store submission is a separate manual operation that opens a pull request
 against `raycast/extensions`. CI validates this repository but never runs

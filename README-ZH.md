@@ -54,6 +54,7 @@ brew install --cask starcat
 <!-- starcat-promo:end -->
 
 [![CI](https://github.com/starcat-app/starcat-raycast-extension/actions/workflows/ci.yml/badge.svg)](https://github.com/starcat-app/starcat-raycast-extension/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/starcat-app/starcat-raycast-extension)](https://github.com/starcat-app/starcat-raycast-extension/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 ## 功能
@@ -135,6 +136,12 @@ allowlist、来源展示，以及从
 
 Raycast Extension 不在 manifest 中声明版本号。Store 只维护一个隐式的最新版本，
 提交通过后自动更新给用户。
+
+仓库里程碑使用 `vMAJOR.MINOR.PATCH` Git tag。每个
+[GitHub Release](https://github.com/starcat-app/starcat-raycast-extension/releases)
+都会提供源码 `.zip` / `.tar.gz`、`checksums.txt` 和 GitHub artifact
+attestation。这些归档用于审查和可复现的本地开发，不是可一键安装的 Raycast Store
+安装包。
 
 Raycast Store 提交是独立的人工操作，会向 `raycast/extensions` 创建 Pull Request。
 本仓库 CI 只做验证，绝不会执行 `npm run publish`。详见

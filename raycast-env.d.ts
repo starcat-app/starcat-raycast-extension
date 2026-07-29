@@ -24,3 +24,4 @@ declare namespace Arguments {
   /** Arguments passed to the `search-repositories` command */
   export type SearchRepositories = {}
 }
+

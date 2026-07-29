@@ -5,6 +5,7 @@
 !.env.example
 build/
 dist/
+release/
 node_modules/
 tmp/
 *.log

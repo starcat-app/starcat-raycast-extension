@@ -4,8 +4,9 @@
 
 Raycast extensions do not declare a `version` property in `package.json`. The
 Store exposes one implicit latest version and automatically updates users after
-an accepted submission. Use Git tags and this changelog for repository-level
-milestones only; they do not control Raycast Store updates.
+an accepted submission. Repository milestones start at `1.0.0` and use
+`vMAJOR.MINOR.PATCH` Git tags plus matching `CHANGELOG.md` sections; they do not
+control Raycast Store updates.
 
 ## Release gates
 
@@ -17,6 +18,8 @@ npm test
 npm run typecheck
 npm run lint
 npm run build
+bash -n scripts/*.sh
+scripts/package-release.sh v1.0.0 HEAD
 git diff --check
 ```
 
@@ -30,6 +33,21 @@ integration design. At minimum verify:
 - remote-only results open on GitHub;
 - CLI missing, unpaired, non-Pro, disabled MCP, timeout, and upgrade messages;
 - Apple Silicon and Intel macOS where available.
+
+## GitHub Release
+
+Push a version tag only after the matching commit is on `main`:
+
+```bash
+git tag -a v1.0.0 -m "Starcat Raycast Extension v1.0.0"
+git push origin v1.0.0
+```
+
+The tag-triggered workflow reruns every automated gate, creates reproducible
+source `.zip` / `.tar.gz` archives, verifies `checksums.txt`, records GitHub
+artifact attestations, and publishes the GitHub Release. Validate the public
+release title, target commit, assets, SHA-256 values, and attestation before
+announcing it.
 
 ## Raycast Store submission
 
