@@ -4,6 +4,10 @@ All notable changes to Starcat Raycast Extension are documented here.
 
 ## Unreleased
 
+### Fixed
+
+- Normalize release archive timestamps to UTC for cross-timezone checksums.
+
 ## [1.0.0] - 2026-07-30
 
 ### Added

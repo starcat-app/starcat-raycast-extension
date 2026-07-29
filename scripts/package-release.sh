@@ -38,14 +38,16 @@ rm -f \
   "${release_dir}/${archive_root}.tar.gz" \
   "${release_dir}/checksums.txt"
 
-git archive \
+# ZIP 的 DOS 时间字段会受到本机时区影响；固定 UTC 后，不同开发机与 CI 才能
+# 对同一 revision 生成相同摘要。
+TZ=UTC git archive \
   --format=zip \
   --prefix="${archive_root}/" \
   --output="${release_dir}/${archive_root}.zip" \
   "${revision}"
 
 # gzip -n 去掉时间戳和原始文件名，使同一 revision 的 tar.gz 可重复生成。
-git archive --format=tar --prefix="${archive_root}/" "${revision}" |
+TZ=UTC git archive --format=tar --prefix="${archive_root}/" "${revision}" |
   gzip -n >"${release_dir}/${archive_root}.tar.gz"
 
 (
