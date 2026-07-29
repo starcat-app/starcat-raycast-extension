@@ -15,8 +15,8 @@ jobs:
     runs-on: macos-14
     steps:
       # v6 使用 Node 24 runtime，避免 GitHub 对旧 Node 20 action runtime 的弃用告警。
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22.22.2
           cache: npm
